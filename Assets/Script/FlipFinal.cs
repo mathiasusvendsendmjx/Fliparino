@@ -18,18 +18,26 @@ public class PlayerController : MonoBehaviour {
             var axis = Vector3.Cross(Vector3.up, dir);
             StartCoroutine(Roll(anchor, axis));
         }
-        if (Input.GetKey(KeyCode.W))
-{
-    Debug.Log("W pressed");
-}
+        //Debug.Log(transform.position);
+Debug.Log(transform.up);
+
     }
  
     private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
         _isMoving = true;
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Round(pos.x);
+        pos.z = Mathf.Round(pos.z);
+
+        transform.position = pos;
+
         for (var i = 0; i < 90 / _rollSpeed; i++) {
             transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
+
         _isMoving = false;
     }
 }
