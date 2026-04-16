@@ -31,12 +31,22 @@ private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
         yield return new WaitForSeconds(0.01f);
     }
 
-    // snap EFTER rotation
-    Vector3 pos = transform.position;
-    pos.x = Mathf.Round(pos.x);
-    pos.z = Mathf.Round(pos.z);
-    transform.position = pos;
+// snap EFTER rotation
+Vector3 pos = transform.position;
+pos.x = Mathf.Round(pos.x);
+pos.z = Mathf.Round(pos.z);
+transform.position = pos;
 
-    _isMoving = false;
+// 🔥 FIX ROTATION HER
+Vector3 rot = transform.eulerAngles;
+rot.x = Mathf.Round(rot.x / 90) * 90;
+rot.y = Mathf.Round(rot.y / 90) * 90;
+rot.z = Mathf.Round(rot.z / 90) * 90;
+transform.eulerAngles = rot;
+
+// lille pause
+yield return new WaitForSeconds(0.02f);
+
+_isMoving = false;
 }
 }
