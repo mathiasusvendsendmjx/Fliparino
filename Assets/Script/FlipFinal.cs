@@ -34,6 +34,7 @@ private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
 // snap EFTER rotation
 Vector3 pos = transform.position;
 pos.x = Mathf.Round(pos.x);
+pos.y = Mathf.Round(pos.y * 2) / 2;
 pos.z = Mathf.Round(pos.z);
 transform.position = pos;
 
