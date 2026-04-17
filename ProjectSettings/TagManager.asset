@@ -5,13 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Gul
-  - Orange
   - "Bl\xE5"
-  - "R\xF8d"
-  - Lilla
-  - "Gr\xF8n"
   - Ground
   - Platform
+  - Pink
   layers:
   - Default
   - TransparentFX
@@ -20,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Platform
-  - 
-  - 
+  - Player
+  - Ground
   - 
   - 
   - 

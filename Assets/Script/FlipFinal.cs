@@ -13,14 +13,11 @@ public class PlayerController : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.UpArrow)) Assemble(Vector3.forward);
         else if (Input.GetKeyDown(KeyCode.DownArrow)) Assemble(Vector3.back);
  
-        void Assemble(Vector3 dir) {
-            var anchor = transform.position + (Vector3.down + dir) * 0.5f;
-            var axis = Vector3.Cross(Vector3.up, dir);
-            StartCoroutine(Roll(anchor, axis));
-        }
-        //Debug.Log(transform.position);
-        //Debug.Log(transform.up);
-
+       void Assemble(Vector3 dir) {
+  var anchor = transform.position + (Vector3.down + dir) * 0.5f * transform.localScale.x;
+    var axis = Vector3.Cross(Vector3.up, dir);
+    StartCoroutine(Roll(anchor, axis));
+}
     }
  
 private IEnumerator Roll(Vector3 anchor, Vector3 axis) {
